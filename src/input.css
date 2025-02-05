@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: karla;
+    src: url(../assets/fonts/static/Karla-Regular.ttf);
+}
+
+body{
+    font-family: karla;
+}
+
+input, textarea, .border-edits{
+    border: 1px solid hsl(186, 15%, 59%);
+    border-radius: 5px;
+}
+
+input:hover, input:focus, input:active input{
+    border: 1px solid hsl(169, 82%, 27%);
+    cursor: pointer;
+}
+
+input[type="radio"]:focus, input[type="radio"]:active, input[type="radio"]:checked {
+    accent-color: hsl(169, 82%, 27%); /* Change this to any color */
+}
+
+input[type="radio"]:checked + label {
+    background-color: hsl(148, 38%, 91%);
+}

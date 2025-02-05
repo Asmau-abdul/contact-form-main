@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="css/style.css">
+  
+  <title>Frontend Mentor | Contact form</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style type="text/tailwindcss">
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+    @theme {
+        --color-clifford: #da373d;
+      }
+  </style>
+</head>
+<body class="bg-green-50 text-sm md:text-base">
+  <div id="alertpopup" class="absolute bg-green-700 text-white rounded-lg p-4 mr-auto ml-auto top-4 md:top-8 left-[24%] right-[24%] text-xs md:text-base hidden">
+    <div class="flex pb-2">
+      <img src="../assets/images/icon-success-check.svg" alt="icon-success-check" class="pr-2 h-[18px]">
+    <h3 class="font-semibold"> Message Sent!</h3>
+    </div>
+    <p>Thanks for completing the form. We'll be in touch soon!</p>
+  </div>
+  <div class="bg-white ml-auto mr-auto mt-20 w-5/6 rounded-xl p-6 container md:mt-[115px]">
+    <h1 class="font-semibold text-2xl md:text-4xl mt-2 mb-5">Contact Us</h1>
+    <form action="" method="post">
+      <div class="md:flex md:justify-between">
+        <div class="mb-5 md:w-[49%]">
+          <label for="firstname" class="text-gray-500">First Name <sup>*</sup></label>
+          <input type="text" name="firstname" id="firstname" class="w-full h-10 mt-2">
+          <p class="text-red-700 text-xs pt-2 hidden" id="firstnameerror">This field is required</p>
+        </div>
+        <div class="mb-5 md:w-[49%]">
+          <label for="lastname" class="text-gray-500">Last Name <sup>*</sup></label>
+          <input type="text" name="lastname" id="lastname" class="w-full h-10 mt-2">
+          <p class="text-red-700 text-xs pt-2 hidden" id="lastnameerror">This field is required</p>
+        </div>
+      </div>
+      <div class="mb-5">
+        <label for="email" class="text-gray-500">Email Address <sup>*</sup></label>
+        <input type="email" name="email" id="email" class="w-full h-10 mt-2">
+        <p class="text-red-700 text-xs pt-2 hidden" id="emailerror">Please enter a valid email address</p>
+      </div>
+      <label for="" class="text-gray-500">Query Type <sup>*</sup></label>
+      <div class="mb-5 mt-1 md:mt-2 md:flex justify-between">
+        <div class="flex md:w-[49%]">
+          <label for="generalenquiry" class="text-gray-500 block border-edits w-full p-2 mb-3 md:mb-0 mt-2 md:mt-0 hover:cursor-pointer hover:border-green-700 active:bg-green-50 md:flex-1 peer-checked:bg-green-50"><input type="radio" name="querytype" id="generalenquiry" class="peer"> General Enquiry</label>
+        </div>
+        <div class="flex md:w-[49%]">
+          <label for="supportrequest" class="text-gray-500 block border-edits w-full p-2 mb-3 md:mb-0 mt-2 md:mt-0 hover:cursor-pointer hover:border-green-700 active:bg-green-50 peer-checked:bg-green-50"><input type="radio" name="querytype" id="supportrequest" class="peer"> Support Request</label>
+        </div>
+      </div>
+      <p class="text-red-700 text-xs pb-2 -mt-3 md:mb-3 hidden" id="querytypeerror">Please select a query type</p>
+      <div>
+        <label for="message" class="text-gray-500">Message <sup>*</sup></label>
+        <textarea name="message" id="message" rows="8" cols="30" class="w-full md:h-28 mt-2 md:mt-0 hover:cursor-pointer hover:border-green-700"></textarea>
+        <p class="text-red-700 text-xs pb-2 hidden" id="messageerror">This field is required</p>
+      </div>
+      <div class="md:mt-7 flex">
+        <input type="checkbox" name="consent" id="consent" class="checked:accent-green-700">
+        <label for="consent" class="text-gray-500 text-xs md:text-sm p-4 w-5/6 hover:cursor-pointer">I consent to being contacted by the team <sup>*</sup></label>
+      </div><p class="text-red-700 text-xs pb-2 mb-3 -mt-2 hidden" id="consenterror">To submit this form, please consent to being contacted</p>
+      <div>
+        <input type="submit" value="Submit" class="w-full h-10 border-none bg-green-700 hover:bg-green-900 text-white md:mb-5 mt-5">
+      </div>
+    </form>
+  
+  <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+
+  <script src="app.js"></script>
+</body>
+</html>
