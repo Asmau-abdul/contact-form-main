@@ -14,9 +14,12 @@ let validateForm = () => {
     let supportrequest = document.querySelector('#supportrequest')
     let querytypeerror = document.querySelector('#querytypeerror')
 
+    let isValid = true
+
     if (firstname.value.trim() === ""){
         firstnameerror.classList.remove('hidden')
         firstname.style = "border-color: red"
+        isValid = false
     }else{
         firstnameerror.classList.add('hidden')
         firstname.style = "border-color: hsl(186, 15%, 59%)"
@@ -25,6 +28,7 @@ let validateForm = () => {
     if (lastname.value.trim() === ""){
         lastnameerror.classList.remove('hidden')
         lastname.style = "border-color: red"
+        isValid = false
     }else{
         lastnameerror.classList.add('hidden')
         lastname.style = "border-color: hsl(186, 15%, 59%)"
@@ -34,6 +38,7 @@ let validateForm = () => {
         emailerror.classList.remove('hidden')
         email.style = "border-color: red"
         email.placeholder = 'email#example.com'
+        isValid = false
     }else{
         emailerror.classList.add('hidden')
         email.style = "border-color: hsl(186, 15%, 59%)"
@@ -42,6 +47,7 @@ let validateForm = () => {
     if (message.value.trim() === ""){
         messageerror.classList.remove('hidden')
         message.style = "border-color: red"
+        isValid = false
     }else{
         messageerror.classList.add('hidden')
         message.style = "border-color: hsl(186, 15%, 59%)"
@@ -50,6 +56,7 @@ let validateForm = () => {
     if (!consent.checked){
         consenterror.classList.remove('hidden')
         consent.style = "border-color: red"
+        isValid = false
     }else{
         consenterror.classList.add('hidden')
         consent.style = "border-color: hsl(186, 15%, 59%)"
@@ -57,22 +64,27 @@ let validateForm = () => {
 
     if (!generalenquiry.checked && !supportrequest.checked){
         querytypeerror.classList.remove('hidden')
+        isValid = false
     }else{
         querytypeerror.classList.add('hidden')
     }
+
+    return isValid
 }
+let alertpopup = document.querySelector('#alertpopup')
 
 let form = document.querySelector('form')
+
 form.addEventListener('submit', (e) => {
-    let alertpopup = document.querySelector('#alertpopup')
     e.preventDefault()
-    validateForm()
-    form.reset()
-    alertpopup.classList.remove('hidden')
+    if (validateForm() == true){
+        form.reset()
+        alertpopup.classList.remove('hidden')
+    }
 })
 
-window.addEventListener('click', function () {
-    if (!alertpopup.classList.contains('hidden')) {
-      alertpopup.classList.add('hidden')
+window.addEventListener('click', () => {
+    if(!alertpopup.classList.contains('hidden')){
+        alertpopup.classList.add('hidden')
     }
-  });
+})
